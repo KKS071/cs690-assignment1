@@ -20,6 +20,9 @@ OK: model/configuration metadata written to results/verification.json
 
 Paste the final summary line of `pytest -q` here.
 
+....................    [100%]
+20 passed in 1.15s
+
 Answer each question in your own words, in about 75 to 150 words. Base every answer on the code in this repository, and name the files and functions you describe.
 
 ### Q1. The path of one attempt
