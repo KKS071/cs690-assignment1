@@ -50,33 +50,31 @@ Both conditions use temperature 1.0, which introduces randomness into generation
 
 ### Q4. pass@k by hand
 
-For one task with **n = 3 attempts** and **c = 1 correct**, pass@1 is:
+For one task with n = 3 attempts and c = 1 correct:
 
-\[
-\text{pass@1} = \frac{c}{n} = \frac{1}{3} = 0.3333
-\]
+pass@1 = c / n = 1 / 3 ≈ 0.3333
 
-For pass@2:
+For pass@2, using the lecture formula:
 
-\[
-\text{pass@2} = 1 - \frac{\binom{n-c}{2}}{\binom{n}{2}}
-\]
+pass@2 = 1 − [(n − c choose 2) / (n choose 2)]
 
-Here, \( n - c = 2 \), so:
+Here, n − c = 2, so:
 
-\[
-\text{pass@2} = 1 - \frac{1}{3} = 0.6667
-\]
+(n − c choose 2) = (2 choose 2) = 1  
+(n choose 2) = (3 choose 2) = 3  
 
-Confirming with `pass_at_k(3,3,1)` gives the same values.
+So:
+
+pass@2 = 1 − (1 / 3) = 2 / 3 ≈ 0.6667
+
+Confirming with pass_at_k(3, 3, 1) gives the same values.
 
 The shortcut formula:
 
-\[
-1 - (1 - c/n)^k = 1 - (2/3)^2 = 1 - 4/9 = 5/9 = 0.5556
-\]
+1 − (1 − c/n)^k = 1 − (2/3)^2 = 1 − 4/9 = 5/9 ≈ 0.5556
 
-This differs because the shortcut assumes independent attempts drawn with replacement. The correct formula uses combinations without replacement, matching how pass@k is defined in coding benchmarks. This is why the shortcut is incorrect for pass@k.
+This differs because the shortcut treats attempts as independent draws with replacement. The correct pass@k formula uses combinations without replacement, matching how coding benchmarks define pass@k. That is why the shortcut is incorrect here.
+
 
 ### Q5. Why whole problems are redrawn
 
