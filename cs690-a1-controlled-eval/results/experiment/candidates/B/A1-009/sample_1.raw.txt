@@ -1,0 +1,8 @@
+def first_unique_index(text):
+    frequencies = {}
+    for char in text:
+        frequencies[char] = frequencies.get(char, 0) + 1
+    for index, char in enumerate(text):
+        if frequencies[char] == 1:
+            return index
+    return -1
