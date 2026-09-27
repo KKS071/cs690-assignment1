@@ -80,7 +80,7 @@ This differs because the shortcut treats attempts as independent draws with repl
 
 `bootstrap_task_ci` computes the 95% confidence interval by repeatedly resampling tasks, not individual attempts. Each bootstrap sample draws 20 tasks with replacement and recomputes pass@1 for that synthetic dataset. This preserves the structure of the benchmark: each task contributes one pass@1 value based on its three attempts. If attempts were resampled individually, it would artificially inflate the amount of data and underestimate uncertainty.
 
-The rule is enforced by the test `test_bootstrap_task_ci_resamples_tasks` in `tests/test_metrics.py`. This test checks that the bootstrap function redraws whole tasks and never mixes attempts across tasks. It verifies that the resampled indices correspond to task-level units. This ensures the confidence interval reflects variability across tasks, which is the correct interpretation for coding benchmarks.
+The rule is enforced by the test `test_task_bootstrap_resamples_tasks_not_candidate_rows` in `tests/test_metrics.py`, which verifies that the bootstrap function redraws whole tasks and never mixes attempts across tasks. It verifies that the resampled indices correspond to task-level units. This ensures the confidence interval reflects variability across tasks, which is the correct interpretation for coding benchmarks.
 
 ---
 
